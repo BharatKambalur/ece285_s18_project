@@ -111,6 +111,7 @@ if __name__ == '__main__':
     def train(epoch):
         net.train()
         loss_avg = 0.0
+        t0 = time.time()
         for batch_idx, (data, target) in enumerate(train_loader):
             data, target = torch.autograd.Variable(data.cuda()), torch.autograd.Variable(target.cuda())
 
@@ -119,19 +120,20 @@ if __name__ == '__main__':
 
             # backward
             optimizer.zero_grad()
-            t0 = time.time()
+            #t0 = time.time()
             loss = F.cross_entropy(output, target)
-            t1 = time.time()
+            #t1 = time.time()
             loss.backward()
             optimizer.step()
 
             # exponential moving average
             loss_avg = loss_avg * 0.2 + float(loss) * 0.8
 
-            print("===> Epoch[{}]({}/{}): Loss: {:.4f} || Timer: {:.4f} sec.".format(epoch, batch_idx, len(train_loader), loss.data[0], (t1 - t0)))
+            #print("===> Epoch[{}]({}/{}): Loss: {:.4f} || Timer: {:.4f} sec.".format(epoch, batch_idx, len(train_loader), loss.data[0], (t1 - t0)))
 
         state['train_loss'] = loss_avg
-        print("===> Epoch {} Complete: Avg. Loss: {:.4f}".format(epoch, loss_avg))
+        t1 = time.time()
+        print("===> Epoch {} Complete: Avg. Loss: {:.4f} | Time: {:.4f}".format(epoch, loss_avg, (t1-t0)))
 
     # test function (forward only)
     def test():
