@@ -21,6 +21,7 @@ import torch.nn.functional as F
 import torchvision.datasets as dset
 import torchvision.transforms as transforms
 from models.model import CifarResNeXt
+import time
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Trains ResNeXt on CIFAR',
@@ -107,7 +108,7 @@ if __name__ == '__main__':
                                 weight_decay=state['decay'], nesterov=True)
 
     # train function (forward, backward, update)
-    def train():
+    def train(epoch):
         net.train()
         loss_avg = 0.0
         for batch_idx, (data, target) in enumerate(train_loader):
@@ -118,15 +119,19 @@ if __name__ == '__main__':
 
             # backward
             optimizer.zero_grad()
+            t0 = time.time()
             loss = F.cross_entropy(output, target)
+            t1 = time.time()
             loss.backward()
             optimizer.step()
 
             # exponential moving average
             loss_avg = loss_avg * 0.2 + float(loss) * 0.8
 
-        state['train_loss'] = loss_avg
+            print("===> Epoch[{}]({}/{}): Loss: {:.4f} || Timer: {:.4f} sec.".format(epoch, batch_idx, len(train_loader), loss.data[0], (t1 - t0)))
 
+        state['train_loss'] = loss_avg
+        print("===> Epoch {} Complete: Avg. Loss: {:.4f}".format(epoch, loss_avg))
 
     # test function (forward only)
     def test():
@@ -160,14 +165,14 @@ if __name__ == '__main__':
                 param_group['lr'] = state['learning_rate']
 
         state['epoch'] = epoch
-        train()
+        train(epoch)
         test()
         if state['test_accuracy'] > best_accuracy:
             best_accuracy = state['test_accuracy']
             torch.save(net.state_dict(), os.path.join(args.save, 'model.pytorch'))
         log.write('%s\n' % json.dumps(state))
         log.flush()
-        print(state)
-        print("Best accuracy: %f" % best_accuracy)
+        #print(state)
+        print("[Epoch {}] Best accuracy: {:.4f}".format(epoch, best_accuracy))
 
     log.close()
