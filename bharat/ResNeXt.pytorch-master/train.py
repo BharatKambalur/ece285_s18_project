@@ -74,10 +74,14 @@ if __name__ == '__main__':
     std = [x / 255 for x in [63.0, 62.1, 66.7]]
 
     train_transform = transforms.Compose(
-        [transforms.RandomHorizontalFlip(), transforms.RandomCrop(32, padding=4), transforms.ToTensor(),
+        [transforms.RandomHorizontalFlip(),
+         transforms.RandomCrop(32, padding=4),
+         transforms.ToTensor(),
          transforms.Normalize(mean, std)])
+    
     test_transform = transforms.Compose(
         [transforms.ToTensor(), transforms.Normalize(mean, std)])
+    
     if args.dataset == 'cifar10':
         train_data = dset.CIFAR10(args.data_path, train=True, transform=train_transform, download=False)
         test_data = dset.CIFAR10(args.data_path, train=False, transform=test_transform, download=False)
@@ -86,6 +90,7 @@ if __name__ == '__main__':
         train_data = dset.CIFAR100(args.data_path, train=True, transform=train_transform, download=False)
         test_data = dset.CIFAR100(args.data_path, train=False, transform=test_transform, download=False)
         nlabels = 100
+    
     train_loader = torch.utils.data.DataLoader(train_data, batch_size=args.batch_size, shuffle=True,
                                                num_workers=args.prefetch, pin_memory=True)
     test_loader = torch.utils.data.DataLoader(test_data, batch_size=args.test_bs, shuffle=False,
