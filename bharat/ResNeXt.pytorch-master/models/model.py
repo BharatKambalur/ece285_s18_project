@@ -39,9 +39,11 @@ class ResNeXtBottleneck(nn.Module):
         D = cardinality * int(base_width * width_ratio)
         self.conv_reduce = nn.Conv2d(in_channels, D, kernel_size=1, stride=1, padding=0, bias=False)
         self.bn_reduce = nn.BatchNorm2d(D)
-        self.conv_conv = nn.Conv2d(D, D, kernel_size=3, stride=stride, padding=1, groups=cardinality, bias=False)
+        self.conv_conv = nn.Conv2d(D, D, kernel_size=3, stride=stride,
+                                   padding=1, groups=cardinality, bias=False)
         self.bn = nn.BatchNorm2d(D)
-        self.conv_expand = nn.Conv2d(D, out_channels, kernel_size=1, stride=1, padding=0, bias=False)
+        self.conv_expand = nn.Conv2d(D, out_channels, kernel_size=1,
+                                     stride=1, padding=0, bias=False)
         self.bn_expand = nn.BatchNorm2d(out_channels)
 
         self.shortcut = nn.Sequential()
