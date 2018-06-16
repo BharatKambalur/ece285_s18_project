@@ -15,8 +15,7 @@ $ pip install --user <package_name>
 
 Code organization
 =================
-demo . ipynb -- Run a demo of our code ( reproduce Figure 3 of our report )
-train . upyng -- Run the training of our model ( as described in Section 2)
-code / backprop .py -- Module implementing backprop
-code / visu .py -- Module for visualizing our dataset
-assets / model .dat -- Our model trained as described in Section 4
+Folder        Description
+_____________________________________________________________________________________________
+Demos         Contains iPython Notebokks that demo different components of our project.
+              Also contains notebooks to produce plots for various test and train accuracies
