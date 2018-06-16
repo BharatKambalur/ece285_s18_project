@@ -1,12 +1,12 @@
 import os
 import torch.nn as nn
 import torch.optim as optim
-from base_networks import *
+from dbpn_base_networks import *
 from torchvision.transforms import *
 
 class DBPN_Net(nn.Module):
     def __init__(self, num_channels, base_filter, feat, num_stages, scale_factor):
-        super(Net, self).__init__()
+        super(DBPN_Net, self).__init__()
 
         if scale_factor == 2:
         	kernel = 6
