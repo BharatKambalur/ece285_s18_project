@@ -15,11 +15,11 @@ $ pip install --user <package_name>
 
 Code organization
 =================
-Demos:
+* Demos:
 
-Contains iPython Notebokks that demo different components of our project.
-Also contains notebooks to produce plots for various test and train accuracies.
+--- Contains iPython Notebokks that demo different components of our project.
+--- Also contains notebooks to produce plots for various test and train accuracies.
 
-Training:
+* Training:
 
-Contains the iPython Notebooks that can be used to train DenseNet (Baseline, DBPN Pipelined, Bicubic Scaling Pipelined) and RexNeXt (Baseline only)
+--- Contains the iPython Notebooks that can be used to train DenseNet (Baseline, DBPN Pipelined, Bicubic Scaling Pipelined) and RexNeXt (Baseline only)
