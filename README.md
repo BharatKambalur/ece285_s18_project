@@ -7,8 +7,10 @@ This repository contains all the code used for our project "Improving Classifica
 
 Requirements
 ============
-Install package 'imageio ' as follow :
-$ pip install --user imageio
+The following Python Packages are required: numpy, matplotlib, Pillow, pytorch (tested with 0.3.1)
+
+Install package the packages as follow :
+$ pip install --user <package_name>
 
 
 Code organization
