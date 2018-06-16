@@ -32,6 +32,10 @@ Code organization
 
    Contains the trained weights for the different networks. (Note: Due to GitHub File size limitation, not all files are uploaded. Please contact the authors to acquire them)
    
+* Results:
+
+  Implementation Specific. Contains the numpy arrays that store various data obtained during training models for each epoch.
+   
 * Utils, log:
 
    Project specific folder that holds Utility scripts and log files respectively
