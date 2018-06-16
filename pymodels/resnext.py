@@ -8,6 +8,7 @@ Xie, S., Girshick, R., Dollár, P., Tu, Z., & He, K. (2016).
 Aggregated residual transformations for deep neural networks. 
 arXiv preprint arXiv:1611.05431.
 
+Adapted for Project by Bharat Kambalur
 """
 
 __author__ = "Pau Rodríguez López, ISELAB, CVC-UAB"
