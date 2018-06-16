@@ -17,8 +17,8 @@ Code organization
 =================
 * Demos:
 
-... Contains iPython Notebokks that demo different components of our project.
-... Also contains notebooks to produce plots for various test and train accuracies.
+...Contains iPython Notebokks that demo different components of our project.
+...Also contains notebooks to produce plots for various test and train accuracies.
 
 * Training:
 
