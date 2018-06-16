@@ -8,6 +8,7 @@ The im_gt is the groundtruth image
 The im_b is the interpolated low resolution image
 - im_gt = Image.open("Set5/butterfly_GT.bmp").convert("RGB")
 - im_b = Image.open("Set5/butterfly_GT_scale_4.bmp").convert("RGB")
+
 The outputs are saved as testBCIm.JPEG (bicubic) and testHRIm.JPEG (VDSR High Res Output).
 
 
