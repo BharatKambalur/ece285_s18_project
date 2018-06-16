@@ -17,9 +17,21 @@ Code organization
 =================
 * Demos:
 
-   Contains iPython Notebokks that demo different components of our project.
+   Contains iPython Notebooks that demo different components of our project.
    Also contains notebooks to produce plots for various test and train accuracies.
 
 * Training:
 
---- Contains the iPython Notebooks that can be used to train DenseNet (Baseline, DBPN Pipelined, Bicubic Scaling Pipelined) and RexNeXt (Baseline only)
+   Contains the iPython Notebooks that can be used to train DenseNet (Baseline, DBPN Pipelined, Bicubic Scaling Pipelined) and RexNeXt (Baseline only)
+   
+* pymodels:
+
+   Contains the Python files that describe the various pytorch models
+   
+* models:
+
+   Contains the trained weights for the different networks. (Note: Due to GitHub File size limitation, not all files are uploaded. Please contact the authors to acquire them)
+   
+* Utils, log:
+
+   Project specific folder that holds Utility scripts and log files respectively
